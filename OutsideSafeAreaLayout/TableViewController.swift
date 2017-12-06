@@ -15,3 +15,19 @@ class TableViewController: UITableViewController {
 
 }
 
+// MARK: UITableViewDelegate, UITableViewDataSource
+
+extension TableViewController {
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = String(indexPath.row)
+        return cell
+    }
+
+}
+
