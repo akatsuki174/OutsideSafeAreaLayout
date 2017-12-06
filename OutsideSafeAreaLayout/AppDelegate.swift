@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  OutsideSafeAreaLayout
-//
-//  Created by akatsuki174 on 2017/12/06.
-//  Copyright © 2017年 akatsuki174. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
