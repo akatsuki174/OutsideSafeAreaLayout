@@ -18,15 +18,26 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIX-4e-5NZ">
                     <rect key="frame" x="0.0" y="44" width="422" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3M-eR-8NS">
+                            <rect key="frame" x="188" y="30" width="46" height="30"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" red="1" green="0.9948742652" blue="0.79600128309999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="c3M-eR-8NS" firstAttribute="centerX" secondItem="eIX-4e-5NZ" secondAttribute="centerX" id="BG2-zX-aCm"/>
+                        <constraint firstAttribute="bottom" secondItem="c3M-eR-8NS" secondAttribute="bottom" id="j4M-D3-vRJ"/>
                         <constraint firstAttribute="height" constant="60" id="yQX-6v-ntS"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqN-Zl-Ad4" customClass="MeneView">
-                    <rect key="frame" x="376" y="0.0" width="46" height="44"/>
+                    <rect key="frame" x="362" y="0.0" width="60" height="44"/>
                     <color key="backgroundColor" red="1" green="0.93044073730290278" blue="0.98866965408860641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Button"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="sMc-v1-nCK"/>
+                    </constraints>
+                    <state key="normal" title="↑↓"/>
                 </button>
             </subviews>
             <constraints>
