@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W2B-uz-yE6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3vy-B4-iLl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,45 +13,32 @@
         <!--View Controller-->
         <scene sceneID="d7j-CL-Ifa">
             <objects>
-                <viewController id="3vy-B4-iLl" sceneMemberID="viewController">
+                <viewController id="3vy-B4-iLl" customClass="ViewController" customModule="OutsideSafeAreaLayout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCa-AJ-2MW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F6J-AS-PMO" customClass="Viewco">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ggn-r2-Q0b" firstAttribute="bottom" secondItem="F6J-AS-PMO" secondAttribute="bottom" id="B5g-gE-Exi"/>
+                            <constraint firstItem="ggn-r2-Q0b" firstAttribute="trailing" secondItem="F6J-AS-PMO" secondAttribute="trailing" id="McV-Rs-jm2"/>
+                            <constraint firstItem="F6J-AS-PMO" firstAttribute="top" secondItem="hCa-AJ-2MW" secondAttribute="top" id="SKd-Bo-d2h"/>
+                            <constraint firstItem="F6J-AS-PMO" firstAttribute="leading" secondItem="ggn-r2-Q0b" secondAttribute="leading" id="t1w-qI-QSo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ggn-r2-Q0b"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="F6J-AS-PMO" id="pUm-g8-866"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEK-da-558" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1490" y="99"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="T19-k4-igX">
-            <objects>
-                <tableViewController id="W2B-uz-yE6" customClass="TableViewController" customModule="OutsideSafeAreaLayout" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QLM-2M-laN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2FX-kX-EqX">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2FX-kX-EqX" id="6L8-IC-xWZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="W2B-uz-yE6" id="M8e-S6-ryb"/>
-                            <outlet property="delegate" destination="W2B-uz-yE6" id="fm4-iC-aS2"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wSO-Cl-zIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-680" y="100"/>
         </scene>
     </scenes>
 </document>
