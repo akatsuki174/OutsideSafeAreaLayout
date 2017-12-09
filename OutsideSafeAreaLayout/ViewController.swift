@@ -28,7 +28,7 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func changeBottomInset() {
-        bottomInset.constant = menuView.isShowFull ? 0 : menuView.view.frame.height
+        bottomInset.constant = menuView.shouldShowFull ? 0 : menuView.view.frame.height
     }
 
     override func viewWillAppear(_ animated: Bool) {

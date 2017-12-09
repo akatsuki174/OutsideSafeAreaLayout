@@ -3,7 +3,7 @@ import UIKit
 final class MenuView: UIView {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var view: UIView!
-    var isShowFull: Bool = false
+    var shouldShowFull: Bool = false
     var buttonPressedAction: (() -> Void)?
     var bottomInset: NSLayoutConstraint!
 
@@ -27,7 +27,7 @@ final class MenuView: UIView {
     }
 
     @objc func moveButtonPressed() {
-        self.isShowFull = !isShowFull
+        self.shouldShowFull = !shouldShowFull
         buttonPressedAction?()
     }
 }
