@@ -17,6 +17,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Of7-DQ-cUr">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="3vy-B4-iLl" kind="relationship" relationship="rootViewController" id="5OR-v2-C3b"/>
@@ -39,7 +40,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ggn-r2-Q0b" firstAttribute="bottom" secondItem="F6J-AS-PMO" secondAttribute="bottom" id="B5g-gE-Exi"/>
                             <constraint firstItem="ggn-r2-Q0b" firstAttribute="trailing" secondItem="F6J-AS-PMO" secondAttribute="trailing" id="McV-Rs-jm2"/>

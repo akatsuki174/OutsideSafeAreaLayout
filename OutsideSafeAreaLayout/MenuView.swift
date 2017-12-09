@@ -33,9 +33,9 @@ final class MenuView: UIView {
 
     @objc func moveButtonPressed() {
         self.shouldShowFull = !shouldShowFull
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
             self.view.alpha = self.shouldShowFull ? 1.0 : 0.0
-        })
+        }, completion: nil)
         buttonPressedAction?()
     }
 }
