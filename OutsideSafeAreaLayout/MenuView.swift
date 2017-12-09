@@ -22,8 +22,9 @@ final class MenuView: UIView {
             return
         }
         view.frame = self.bounds
-        button.addTarget(self, action: #selector(self.moveButtonPressed), for: .touchUpInside)
         self.addSubview(view)
+        button.addTarget(self, action: #selector(self.moveButtonPressed), for: .touchUpInside)
+        self.view.alpha = shouldShowFull ? 1.0 : 0.0
     }
 
     func changeBottomInset() {
@@ -32,6 +33,9 @@ final class MenuView: UIView {
 
     @objc func moveButtonPressed() {
         self.shouldShowFull = !shouldShowFull
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.alpha = self.shouldShowFull ? 1.0 : 0.0
+        })
         buttonPressedAction?()
     }
 }
