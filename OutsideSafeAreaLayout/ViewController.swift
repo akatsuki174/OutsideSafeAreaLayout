@@ -4,8 +4,8 @@ import PureLayout
 final class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    let menuView = MenuView()
-    var bottomInset: NSLayoutConstraint!
+    private let menuView = MenuView()
+    private var menuViewBottomInset: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,21 +14,21 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         self.view.addSubview(menuView)
         menuView.buttonPressedAction = { [weak self] in
-            // アニメーション
+            // 上下のアニメーション
             self?.view.layoutIfNeeded()
-            self?.setMenuViewFrame()
+            self?.changeMenuViewBottomInset()
             UIView.animate(withDuration: 0.3, animations: {
                 self?.view.layoutIfNeeded()
             })
         }
-        bottomInset = menuView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
-        setMenuViewFrame()
+        menuViewBottomInset = menuView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
+        changeMenuViewBottomInset()
         menuView.autoAlignAxis(toSuperviewAxis: .vertical)
         menuView.autoSetDimensions(to: CGSize.init(width: self.view.frame.width, height: 90))
     }
 
-    func setMenuViewFrame() {
-        bottomInset.constant = menuView.isShowFull ? 0 : 60
+    func changeMenuViewBottomInset() {
+        menuViewBottomInset.constant = menuView.isShowFull ? 0 : menuView.view.frame.height
     }
 
     override func viewWillAppear(_ animated: Bool) {
