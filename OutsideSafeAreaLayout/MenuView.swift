@@ -3,6 +3,9 @@ import UIKit
 final class MenuView: UIView {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var view: UIView!
+    var isShowFull: Bool = false
+    var buttonPressedAction: (() -> Void)?
+    var bottomInset: NSLayoutConstraint!
 
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -19,7 +22,12 @@ final class MenuView: UIView {
             return
         }
         view.frame = self.bounds
+        button.addTarget(self, action: #selector(self.moveButtonPressed), for: .touchUpInside)
         self.addSubview(view)
     }
 
+    @objc func moveButtonPressed() {
+        self.isShowFull = !isShowFull
+        buttonPressedAction?()
+    }
 }

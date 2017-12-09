@@ -4,17 +4,31 @@ import PureLayout
 final class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    let menuView = MenuView()
+    var bottomInset: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
 
-        let menuView = MenuView()
         self.view.addSubview(menuView)
+        menuView.buttonPressedAction = { [weak self] in
+            // アニメーション
+            self?.view.layoutIfNeeded()
+            self?.setMenuViewFrame()
+            UIView.animate(withDuration: 0.3, animations: {
+                self?.view.layoutIfNeeded()
+            })
+        }
+        bottomInset = menuView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
+        setMenuViewFrame()
         menuView.autoAlignAxis(toSuperviewAxis: .vertical)
-        menuView.autoPinEdge(toSuperviewEdge: .bottom)
         menuView.autoSetDimensions(to: CGSize.init(width: self.view.frame.width, height: 90))
+    }
+
+    func setMenuViewFrame() {
+        bottomInset.constant = menuView.isShowFull ? 0 : 60
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,5 +56,3 @@ extension ViewController {
     }
 
 }
-
-
