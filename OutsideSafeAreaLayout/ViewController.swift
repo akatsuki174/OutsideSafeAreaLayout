@@ -10,7 +10,7 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
 
-        let menuView = MenuView.instance()
+        let menuView = MenuView()
         self.view.addSubview(menuView)
         menuView.autoAlignAxis(toSuperviewAxis: .vertical)
         menuView.autoPinEdge(toSuperviewEdge: .bottom)
