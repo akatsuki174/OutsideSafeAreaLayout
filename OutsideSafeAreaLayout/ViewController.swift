@@ -5,7 +5,6 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var tableView: UITableView!
     private let menuView = MenuView()
-    private var bottomInset: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,25 +15,21 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         menuView.buttonPressedAction = { [weak self] in
             // 上下のアニメーション
             self?.view.layoutIfNeeded()
-            self?.changeBottomInset()
             UIView.animate(withDuration: 0.3, animations: {
+                self?.menuView.changeBottomInset()
                 self?.view.layoutIfNeeded()
             })
         }
         if #available(iOS 11, *) {
             let guide = view.safeAreaLayoutGuide
-            bottomInset = menuView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
-            bottomInset?.isActive = true
+            menuView.bottomInset = menuView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
+            menuView.bottomInset?.isActive = true
         } else {
-            bottomInset = menuView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
+            menuView.bottomInset = menuView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
         }
-        changeBottomInset()
+        menuView.changeBottomInset()
         menuView.autoAlignAxis(toSuperviewAxis: .vertical)
         menuView.autoSetDimensions(to: CGSize.init(width: self.view.frame.width, height: 90))
-    }
-
-    func changeBottomInset() {
-        bottomInset.constant = menuView.shouldShowFull ? 0 : menuView.view.frame.height
     }
 
     override func viewWillAppear(_ animated: Bool) {

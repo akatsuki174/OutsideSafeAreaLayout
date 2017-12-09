@@ -26,6 +26,10 @@ final class MenuView: UIView {
         self.addSubview(view)
     }
 
+    func changeBottomInset() {
+        bottomInset.constant = shouldShowFull ? 0 : view.frame.height
+    }
+
     @objc func moveButtonPressed() {
         self.shouldShowFull = !shouldShowFull
         buttonPressedAction?()
