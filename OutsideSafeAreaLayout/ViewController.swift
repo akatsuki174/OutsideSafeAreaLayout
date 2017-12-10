@@ -23,9 +23,9 @@ final class ViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if #available(iOS 11, *) {
             let guide = view.safeAreaLayoutGuide
             menuView.bottomInset = menuView.bottomAnchor.constraint(equalTo: guide.bottomAnchor)
-            menuView.bottomInset?.isActive = true
+            menuView.bottomInset.isActive = true
         } else {
-            menuView.bottomInset = menuView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0)
+            menuView.bottomInset = menuView.autoPinEdge(toSuperviewEdge: .bottom)
         }
         menuView.changeBottomInset()
         menuView.autoAlignAxis(toSuperviewAxis: .vertical)
